@@ -1,11 +1,12 @@
 Use the `git clone` command to pull the repository:
 
 ```
-git clone https://github.com/arben-grepi/WebDevelopment2.git &&
-cd WebDevelopment2/tehtava_5
+git clone https://github.com/arben-grepi/dockerized_app.git &&
+cd dockerized_app
+
 ```
 
-**Now you are in the `tehtava_5` directory and can start pulling the containers from Dockerhub\***
+**Now you are in the dockerized_app directory and can start pulling the containers from Dockerhub\***
 
 Pulls the latest version of the backend image from Docker Hub to your local machine.
 `docker pull arbengrepi/julkinen:backend`
