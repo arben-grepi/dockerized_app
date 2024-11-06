@@ -6,7 +6,10 @@ cd dockerized_app
 
 ```
 
-**When you are in the dockerized_app directory and can start pulling the containers from Dockerhub\***
+**Source Code**
+If you want to view the SourceCode for the application and check what is being imported from Docker Hub, navigate to the sourcecode folder in the root directory.
+
+**When you are in the dockerized_app directory and can start pulling the containers from Dockerhub**
 
 Pulls the latest version of the backend image from Docker Hub to your local machine.
 `docker pull arbengrepi/julkinen:backend`
