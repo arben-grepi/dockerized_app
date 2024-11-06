@@ -7,7 +7,7 @@ cd dockerized_app
 ```
 
 **Source Code**
-If you want to view the SourceCode for the application and check what is being imported from Docker Hub, navigate to the sourcecode folder in the root directory.
+If you want to view the source code for the application and check out the frontend and backend folders that are stored in the Github, navigate to the `SourceCode` folder in the root directory.
 
 **When you are in the dockerized_app directory and can start pulling the containers from Dockerhub**
 
