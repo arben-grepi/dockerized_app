@@ -1,0 +1,26 @@
+# Ignore Docker files
+*.log
+*.pid
+*.swp
+*.bak
+
+# Ignore Docker-related files that shouldn't be in version control
+.docker/
+docker-compose.override.yml
+docker-compose.override.yml.*
+
+# Ignore the image and container data (if not needed in the repo)
+**/node_modules/
+**/dist/
+**/build/
+
+# Ignore Docker volumes
+**/data/
+
+# Ignore the .env file if you use environment variables (this is sensitive data)
+.env
+
+# Ignore Docker-related artifacts
+.dockerignore
+Dockerfile.*
+*.tar

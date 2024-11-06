@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple HTML</title>
+  </head>
+  <body>
+    <h1>Sanakirja (Dictionary)</h1>
+    <ul id="wordList"></ul>
+
+    <script>
+      async function fetchWords() {
+        try {
+          const response = await fetch("/api");
+          if (!response.ok) throw new Error("Network response was not ok");
+
+          const words = await response.json();
+          const wordList = document.getElementById("wordList");
+
+          words.forEach((word) => {
+            const listItem = document.createElement("li");
+            listItem.textContent = `${word.suomi} - ${word.englanti}`;
+            wordList.appendChild(listItem);
+          });
+        } catch (error) {
+          console.error("Fetch error:", error);
+        }
+      }
+
+      // Fetch words on page load
+      fetchWords();
+    </script>
+  </body>
+</html>
