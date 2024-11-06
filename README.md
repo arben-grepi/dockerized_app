@@ -6,6 +6,8 @@ cd dockerized_app
 
 ```
 
+**Make sure Docker Desktop (or your Docker service) is running before you start.**
+
 **Source Code**
 If you want to view the source code for the application and check out the frontend and backend folders that are stored in the Github, navigate to the `SourceCode` folder in the root directory.
 
