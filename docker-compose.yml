@@ -3,11 +3,11 @@ services:
   backend:
     image: arbengrepi/julkinen:backend
     ports:
-      - "5000:5000"
+      - "5000:3000"
     environment:
       - NODE_ENV=production
 
   frontend:
     image: arbengrepi/julkinen:frontend
     ports:
-      - "3000:80" # Map host port 3000 to container's port 80 (Nginx default)
+      - "8080:80"
