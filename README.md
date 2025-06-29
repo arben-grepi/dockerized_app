@@ -1,99 +1,67 @@
-# Dockerized App Practice
+# Dockerized Dictionary Application
 
-This app is for practicing Docker skills. Follow the steps below to set up and manage your containers.
+A containerized web application that serves a Finnish-English dictionary with a microservices architecture. Demonstrates practical experience with Docker containerization, microservices communication, and full-stack web development.
 
----
+## Technologies Used
 
-# Prerequisites
+### Backend
 
-To set up and run this Dockerized app, ensure the following prerequisites are met:
+- **Node.js 16** with Express.js REST API
+- **CORS** middleware for cross-origin requests
+- **File System** module for data persistence
 
-1. **Docker**
+### Frontend
 
-   - Install Docker on your machine if it's not already installed. You can download it from [Docker’s official website](https://www.docker.com/products/docker-desktop) and follow the installation instructions for your operating system (Windows, macOS, or Linux).
-   - Verify that Docker is installed and running by executing `docker --version` in your terminal.
+- **Nginx** web server with reverse proxy
+- **HTML5** with vanilla JavaScript
+- **Fetch API** for asynchronous HTTP requests
 
-2. **Docker Compose**
+### DevOps
 
-   - Docker Compose is typically included with Docker Desktop for Windows and macOS. If you’re using Linux, you may need to install it separately. Check by running `docker-compose --version` in your terminal.
+- **Docker** for containerization
+- **Docker Compose** for multi-container orchestration
+- **Docker Hub** for image registry
 
-3. **Git**
+## Key Features
 
-   - Ensure Git is installed to clone the repository. You can install Git from [Git’s official website](https://git-scm.com/), and check the installation with `git --version` in the terminal.
+- **REST API**: `GET /api` endpoint serving Finnish-English dictionary data
+- **Microservices**: Separate containers for frontend and backend
+- **Reverse Proxy**: Nginx routes API requests to backend service
+- **Service Discovery**: Automatic backend discovery via Docker Compose networking
 
-4. **Node.js and npm (Optional)**
-   - If you want to make modifications to the backend or frontend code and build new images, you’ll need Node.js and npm to install dependencies and run the application locally before containerizing. Download them from [Node.js official website](https://nodejs.org/).
+## Quick Start
 
----
+```bash
+# Clone and run
+git clone https://github.com/arben-grepi/dockerized_app.git
+cd dockerized_app
+docker-compose up -d
 
-# Cloning the Project Repository
+# Access application
+# Frontend: http://localhost:8080
+# Backend API: http://localhost:5000/api
+```
 
-1. Use the `git clone` command to pull the repository:
-   ```
-   git clone https://github.com/arben-grepi/dockerized_app.git &&
-   cd dockerized_app
-   ```
+## Architecture
 
----
+```
+Frontend (Nginx) ←→ Backend (Node.js)
+     Port 8080         Port 5000
+```
 
-# Remove existing tags for practising pushing docker images to the dockerhub
+## Technical Highlights
 
-**Note that, this is not mandatory, do this if you want to practise pushing to dockerhub**
+- **Microservices Architecture**: Independent frontend and backend containers
+- **Container Optimization**: Alpine Linux base images
+- **Production Ready**: Environment variables and proper port mapping
+- **CI/CD Ready**: Docker Hub integration for deployments
+- **Scalable Design**: Services can be scaled independently
 
-1. **Access the DockerHub Repository**  
-   Go to DockerHub repository:
-   `https://hub.docker.com/repository/docker/arbengrepi/julkinen/general`
-   to manage your repository tags.
-2. **Remove Old Tags**  
-   Remove **MockBackend** and **MockFrontend** Tags.
+## Skills Demonstrated
 
-   **After removing old tags, you can push the latest versions of the backend and frontend source code to DockerHub.**
-
-3. **Build the images and push them to the dockerhub**
-
-   **Build both backend and frontend images**
-
-   ```
-   docker build -t arbengrepi/julkinen:MockBackend SourceCode/backend && docker build -t arbengrepi/julkinen:MockFrontend SourceCode/frontend
-
-   ```
-
-   **Push both images to dockerhub**
-
-   ```
-   docker push arbengrepi/julkinen:MockBackend && docker push arbengrepi/julkinen:MockFrontend
-
-   ```
-
----
-
-# Pulling the Containers from DockerHub and Running Them
-
-Once you are in the `dockerized_app` directory, pull the latest backend and frontend images to your local machine.
-
-**If you havent pushed them there previously, check that MockBackend and MockFrontend Tags are still there. If they are not, you need to look up the instructions above on how to push them there**
-`https://hub.docker.com/repository/docker/arbengrepi/julkinen/general`
-
-**Pull the images**:  
- `docker pull arbengrepi/julkinen:MockBackend && docker pull arbengrepi/julkinen:MockFrontend`
-
-4. **Start the Services**  
-   Run the services defined in the `docker-compose.yml` file in detached mode:  
-   `docker-compose up -d`
-
-   - The backend service is now accessible on `http://localhost:5000/api`, with port `5000` on the host mapped to port `3000` in the container.
-   - The frontend service is now accessible on `http://localhost:8080`, with port `8080` on the host mapped to port `80` in the container.
-
----
-
-## Stopping and Removing Containers
-
-When you are done, stop and remove the containers with these commands:
-
-1. **Stop ALL running containers**:
-   NOTE THAT THIS STOPS ALL CONTAINERS, NOT JUST THE ONES WE RAN IN THIS SESSION
-   `docker stop $(docker ps -q)`
-
-2. **Remove ALL containers**:
-   NOTE THAT THIS REMOVES ALL CONTAINERS, NOT JUST THE ONES WE RAN IN THIS SESSION
-   `docker rm $(docker ps -aq)`
+- Docker containerization and multi-container applications
+- Microservices communication and service discovery
+- REST API development with Express.js
+- Web server configuration with Nginx
+- Container orchestration with Docker Compose
+- Image registry management with Docker Hub
